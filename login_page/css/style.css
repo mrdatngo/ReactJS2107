@@ -1,0 +1,36 @@
+.login-container {
+    width: 400px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.login-container form {
+    text-align: center;
+}
+
+.login-container .title {
+    text-align: center;
+    font-weight: bold;
+    margin: 20px;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.login-container input {
+    margin: 10px;
+    height: 20px;
+}
+
+.login-container .submit {
+    margin: 20px;
+    padding: 5px;
+    width: 100px;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    color: white
+}
+
+.login-container .submit:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML/CSS day 2</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        ul,
+        li {
+            padding: 0;
+            margin: 0
+        }
+        
+        ul {
+            background-color: black;
+        }
+        
+        li {
+            display: inline-block;
+            padding: 10px;
+        }
+        
+        li>a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- p, heading -->
+    <h1>HTML/CSS</h1>
+    <h2>Day 2</h2>
+    <h3>...</h3>
+    <h6>h6</h6>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime hic cumque ipsum illo temporibus repellat officiis! Ullam tempore aspernatur maxime debitis, sit, sunt deleniti labore cumque ea blanditiis, quaerat placeat.
+    </p>
+    <!-- Format -->
+    <b>Thẻ b - </b>
+    <p>Số ca mắc mới: <strong>Thẻ strong - 1</strong></p>
+
+    <i>italic</i>
+    <em>emphasize</em>
+
+    <small>small</small>
+
+    <mark> Đánh dâú</mark>
+    <del>Delete</del>
+    <ins>Inserted</ins>
+    <sub>Sub</sub>
+    <sup>Sup</sup>
+
+    <p>Công thức hóa học của nước: H<sub>2</sub>O</p>
+    <p>Công thức toán học: a<sup>2</sup> - b<sup>2</sup> = c<sup>2</sup></p>
+
+    <!-- Image  src(source), alt(alternative), internal, external-->
+    <!-- External link -->
+    <!-- <img src="https://img.freepik.com/free-vector/blue-copy-space-digital-background_23-2148821698.jpg" alt="background-image.png"> -->
+    <!-- Internal link -->
+    <!-- relative path -->
+    <!-- <img src="./images/bg_img.jpg" alt="background-image"> -->
+    <!-- absolute path -->
+    <!-- <img src="/html_css_day2/images/bg_img.jpg" alt="background-image"> -->
+
+    <!-- Link -->
+    <!-- <a href="https://vnexpress.net/them-3-552-ca-covid-19-tp-hcm-vuot-60-000-ca-4330341.html"> Tiến Minh cầu lông</a>
+    <a href="./about.html">About Page</a>
+    <a href="/html_css_day2/about.html" target="_blank">About Page</a>
+    <a href="#mark">Go to Neo</a>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error tempora iure minima optio natus repellat similique consequuntur sed nam incidunt, sequi odio dignissimos itaque iste quam sunt minus ducimus saepe.</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p id="mark">Neo</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi aliquam qui, dolorum sint perspiciatis ducimus quo quam consectetur nihil! Aperiam, voluptatibus ipsa repellendus earum nihil repellat excepturi facere explicabo.</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi aliquam qui, dolorum sint perspiciatis ducimus quo quam consectetur nihil! Aperiam, voluptatibus ipsa repellendus earum nihil repellat excepturi facere explicabo.</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi aliquam qui, dolorum sint perspiciatis ducimus quo quam consectetur nihil! Aperiam, voluptatibus ipsa repellendus earum nihil repellat excepturi facere explicabo.</p> -->
+
+    <!-- List -->
+    <!-- unorder list -->
+    <ul style="list-style-type: circle;">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <!-- order list -->
+    <ol type="i">
+        <li>Home
+            <ul>
+                <li><a href="">Introduce</a></li>
+                <li><a href="">Service</a></li>
+                <li><a href="">Content</a></li>
+            </ul>
+        </li>
+        <li>About</li>
+        <li>Contact</li>
+    </ol>
+
+    <!-- table -->
+    <table>
+        <!-- <caption>Students information</caption> -->
+        <thead>
+            <tr>
+                <th colspan="3">Information</th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Huu Thanh</td>
+                <td rowspan="2">HN</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Van truong</td>
+                <!-- <td>HN</td> -->
+            </tr>
+        </tbody>
+    </table>
+    <span>Students information</span>
+
+    <!-- Layout -->
+
+    <!-- span, div -->
+    <span>content - inline</span>
+    <div> content - block </div>
+
+    <!-- <div id="head"></div>
+    <div id="body"></div> -->
+    <header>
+        Header
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Service</a></li>
+            </ul>
+        </nav>
+        <article>
+            <h3>Title</h3>
+            <p>Description</p>
+        </article>
+    </section>
+    <footer>
+        Footer
+    </footer>
+
+    <!-- form -->
+    <form method="GET|POST|PUT|DELTE" action="/login.php">
+        <label for="username">Username</label>
+        <input id="username" type="text" readonly required name="username">
+        <br>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password">
+        <br>
+        <label for="number">Number</label>
+        <input id="number" type="number" required min="1" max="10" name="number">
+
+        <select name="month" id="month">
+            <option value="0">Select month</option>
+            <optgroup label="Spring">
+                <option value="1">Tháng 1</option>
+                <option value="2">Tháng 2</option>
+                <option value="3">Tháng 3</option>
+            </optgroup>
+            <optgroup label="Summer">
+                <option value="4">Tháng 4</option>
+                <option value="5">Tháng 5</option>
+                <option value="6">Tháng 6</option>
+            </optgroup>
+            <option value="7">Tháng 7</option>
+            <option value="8">Tháng 8</option>
+        </select>
+        <br>
+        <label for="male">Male</label>
+        <input id="male" type="radio" name="gender">
+        <label for="female">Female</label>
+        <input id="female" type="radio" name="gender">
+
+        <label for="policy">Do you agree with our policy!</label>
+        <input id="policy" type="checkbox" name="gender">
+        <button>Login</button>
+        <input type="submit" value="Login">
+    </form>
+</body>
+
+</html>

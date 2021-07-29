@@ -1,0 +1,95 @@
+/* External file */
+
+
+/* tag selector */
+
+.bg-gray {
+    background-color: gray;
+}
+
+.first-h3 {
+    color: green;
+    font-size: 30px;
+}
+
+#second-h3 {
+    color: red;
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.container .description {
+    font-size: 30px;
+}
+
+.container>section {
+    border: 1px solid black;
+}
+
+
+/* ~,+ => sibling */
+
+div.container+p {
+    color: blue;
+}
+
+div~p {
+    color: purple
+}
+
+table tr td:last-child {
+    color: green
+}
+
+table tr td:first-child {
+    color: red
+}
+
+table tr td:nth-child(2) {
+    color: purple
+}
+
+table tr td:nth-last-child(2) {
+    color: purple
+}
+
+
+/* table tr td:first-of-type {
+    color: red
+} */
+
+.input {
+    background-color: black;
+}
+
+.input:hover {
+    background-color: grey;
+}
+
+.input:focus {
+    background-color: red;
+}
+
+a:link {
+    color: green
+}
+
+
+/* a:visited {
+    color: black;
+}
+
+a:active {
+    color: purple
+} */
+
+p::first-letter {
+    color: aqua
+}
+
+p::selection {
+    color: aqua
+}
