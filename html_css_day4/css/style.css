@@ -1,0 +1,120 @@
+/* reset browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ul, li, table, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+} */
+
+h2 {
+    color: rgb(0, 0, 255)
+}
+
+h2 {
+    color: rgb(255, 0, 0)
+}
+
+h2 {
+    color: rgb(255, 255, 0)
+}
+
+h2 {
+    color: pink;
+}
+
+h2 {
+    color: #F00;
+    font-family: 'Style Script', cursive;
+    /* direction: rtl; */
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    text-indent: 40px;
+    text-decoration: underline;
+    text-transform: lowercase;
+    margin-bottom: 200px;
+    display: inline;
+    width: 50px;
+}
+
+p {
+    /* white-space: nowrap; */
+    margin-top: 100px;
+    text-shadow: gray 5px 5px;
+}
+
+.block {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    background-image: url("../images/bg_img.jpg");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: 50px 50px;
+}
+
+.block1, .block2 {
+    width: 50%;
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+    margin: 0;
+}
+
+.block1 {
+    background-color: red;
+    /* float: left; */
+}
+
+.block2 {
+    background-color: green;
+    /* float: right; */
+}
+
+/* .block2::after {
+    display: block;
+    content: "";
+    clear: both;
+} */
+
+.block {
+    width: 50px;
+    height: 50px;
+}
+
+.relative {
+    position: relative;
+    background-color: violet;
+    top: 20px;
+    left: 400px;
+    width: 200px;
+    height: 100px;
+    /* overflow: hidden; */
+    overflow: scroll;
+    overflow: auto;
+    /* white-space: nowrap; */
+}
+
+.absolute {
+    position: absolute;
+    background-color: yellow;
+    top: 20px;
+    left: 100px
+}
+
+
+.fixed {
+    position: fixed;
+    background-color: blue;
+    right: 10px;
+    bottom: 10px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 1086px) {
+    .relative {
+        background-color: red;
+    }
+}
