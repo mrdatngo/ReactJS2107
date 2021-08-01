@@ -18,9 +18,21 @@
     color: #1890ff;
 }
 
+.login-container label {
+    width: 70px;
+    display: inline-block;
+}
+
 .login-container input {
+    border: 1px solid grey;
     margin: 10px;
     height: 20px;
+}
+
+.login-container input:focus {
+    outline: none;
+    border: 1px solid #003663;
+    background-color: #8fbeeb;
 }
 
 .login-container .submit {
