@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,28 @@
     <title>Landing Page</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <nav class="nav-container">
-        <ul class="menu">
+        <svg class="menu-icon js-menu-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172"
+            style=" fill:#000000;">
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#ffffff">
+                    <path
+                        d="M14.33333,35.83333v14.33333h143.33333v-14.33333zM14.33333,78.83333v14.33333h143.33333v-14.33333zM14.33333,121.83333v14.33333h143.33333v-14.33333z">
+                    </path>
+                </g>
+            </g>
+        </svg>
+        <ul class="menu js-menu menu--dark nav__menu--dark">
             <li class="menu-item"><a href="#">Home</a></li>
             <li class="menu-item"><a href="#">About</a></li>
             <li class="menu-item"><a href="#">Contact</a></li>
-            <li class="menu-item"><a>Film type</a>
+            <li class="menu-item"><a>Film type &gt;</a>
                 <ul class="sub-menu">
                     <li class="sub-menu-item"><a href="">Action</a></li>
                     <li class="sub-menu-item"><a href="">Motion</a></li>
@@ -22,7 +38,7 @@
                     <li class="sub-menu-item"><a href="">Animation</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a>Film type 2</a>
+            <li class="menu-item"><a> Film type 2 &gt;</a>
                 <ul class="sub-menu">
                     <li class="sub-menu-item"><a href="">Action</a></li>
                     <li class="sub-menu-item"><a href="">Motion</a></li>
@@ -33,5 +49,8 @@
             </li>
         </ul>
     </nav>
+    <!-- js -->
+    <script src="./js/index.js"></script>
 </body>
+
 </html>

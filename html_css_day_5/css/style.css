@@ -1,0 +1,120 @@
+/*  attributes selector */
+
+/* p[class] {
+    color: red
+} */
+
+
+/* p[class="c1"] {
+    border: 1px solid black;
+} */
+
+/* p[class~="c1"] {
+    border: 1px solid black;
+} */
+
+/* p[class^="c1"] {
+    border: 1px solid black;
+}
+
+p[class$="c2"] {
+    border: 1px solid black;
+} */
+/* 
+p[class*="c2"] {
+    border: 1px solid black;
+}
+
+p[class|="c2"] {
+    border: 1px solid black;
+} */
+
+.block {
+    width: 200px;
+    height: 200px;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-blue {
+    background-color: blue;
+    transition: width 1s, height 1s;
+}
+
+/* transform */
+.ts {
+    /* transform: translate(20px, 30px); */
+    /* transform: rotate(45deg) */
+    /* transform: scale(1.5, 1.5); */
+    /* transform: translate(20px, 30px) rotate(45deg) scale(1.5, 1.5); */
+}
+
+/* transition, animation */
+
+.bg-blue:hover {
+    width: 500px;
+    height: 500px;
+    transition: width ease-in-out 2s 1s, height 1s;
+    /* property timing-function delay duration  */
+}
+
+.bg-red {
+    position: relative;
+    /* left: 400px */
+    /* animation: move-right 1s ease-in-out 0s infinite forwards; */
+    /* animation: move-around 3s ease-in-out 0s infinite forwards */
+}
+
+@keyframes move-right {
+    from {
+        left: 0px
+    }
+    to {
+        left: 400px;
+    }
+}
+
+@keyframes move-around {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        top: 0px;
+        left: 400px;
+    }
+
+    50% {
+        top: 400px;
+        left: 400px;
+    }
+
+    75% {
+        top: 400px;
+        left: 0px;
+    }
+
+    100% {
+        top: 0px;
+        left: 0px;
+    }
+}
+
+/* apply */
+.search {
+    width: 100px;
+    transition: width 1s;
+}
+
+.search:focus {
+    width: 500px;
+    transition: width 1s;
+}
+
+/* BEM */
+.header__menu--dark { 
+
+}
