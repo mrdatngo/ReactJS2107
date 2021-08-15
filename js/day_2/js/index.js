@@ -160,3 +160,45 @@ function changeStudentMark(student) {
 }
 changeStudentMark(student)
 console.log("mark: ", student.mark)
+
+let changeStudentMark2 = function(student) {
+    student.mark = 20;
+}
+
+let changeStudentMark3 = (student) => student.mark = 30;
+let result = changeStudentMark3(student)
+console.log("mark: ", student.mark, result)
+
+// let getStudentMark = (student) => { return student.mark }
+// simplipied =>
+let getStudentMark = (student) => student.mark
+let studentMark = getStudentMark(student)
+console.log("studentMark: ", studentMark)
+
+// rest opterator
+let total2 = (value1, value2) => {
+    return value1 + value2
+}
+
+let total3 = (value1, value2, value3) => {
+    return value1 + value2 + value3
+}
+
+console.log("total2: ", total2(5, 4))
+console.log("total3: ", total3(5, 4, 3))
+
+let total = (k, ...rest) => {
+    let result = 0
+    for(let i = 0; i < rest.length; i++) {
+        if (rest[i] > k) {
+            result += rest[i]
+        }
+    }
+    console.log("rest:", rest, result)
+    return result
+}
+
+let k = 0
+// debugger
+let totalResult = total(k , 1, 2, 3, 4, 5, "1", 6, 7, 8, 9, 10)
+console.log("total: ", totalResult)
