@@ -160,3 +160,43 @@ console.log(students.sort((s1, s2) => {
 }))
 
 console.log(students)
+console.log(numbers)
+// numbers.sort().reverse()
+numbers.sort((n1, n2) => {
+    return n2 - n1
+})
+console.log(numbers)
+// console.log(numbers.reverse())
+let studentNames = ["Hieu", "Thanh", "duc", "Nga"]
+
+// let studentSorted = studentNames.map(name => name.toLowerCase()).sort()
+// console.log(studentSorted)
+
+console.log(studentNames)
+studentNames.sort((name1, name2) => {
+    name1 = name1.toLowerCase()
+    name2 = name2.toLowerCase()
+    if (name1 > name2) {
+        return 1 // need to sort
+    } else if (name1 < name2) {
+        return -1 // ok
+    } else {
+        return 0
+    }
+})
+console.log(studentNames)
+
+console.log(students)
+// sort students by name
+
+students.sort((s1, s2) => {
+    let name1 = s1.name.toLowerCase()
+    let name2 = s2.name.toLowerCase()
+    if (name1 > name2) {
+        return 1 // need to sort
+    } else if (name1 < name2) {
+        return -1 // ok
+    } else {
+        return 0
+    }
+})
