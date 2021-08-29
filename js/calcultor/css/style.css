@@ -1,0 +1,9 @@
+.cal-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.cal-container .cal-main .btn {
+    width: 100%;
+    margin: 5px;
+}
