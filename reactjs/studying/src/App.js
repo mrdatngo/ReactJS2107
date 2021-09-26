@@ -3,6 +3,8 @@ import './App.css';
 import { DashsboardPage } from './pages/dashboard/DashboardPage';
 import LoginPage from './pages/login-page/LoginPage';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { ClockPage } from './pages/life-circle/ClockPage';
+import { ClockPageFc } from './pages/hooks/ClockPageFc';
 
 // function App() {
 //   return (
@@ -29,6 +31,21 @@ class App extends React.Component {
               <Link to="/dashboard">Dashboard</Link>
             </li>
           </ul>
+          {/* <ul>
+            <li>
+              <a href="/login">Login</a>
+            </li>
+          </ul> */}
+          <ul>
+            <li>
+              <Link to="/clock">Clock</Link>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <Link to="/clockfc">Clock</Link>
+            </li>
+          </ul>
         </nav>
 
         <Switch>
@@ -37,6 +54,12 @@ class App extends React.Component {
           </Route>
           <Route path="/dashboard">
             <DashsboardPage />
+          </Route>
+          <Route path="/clock">
+            <ClockPage />
+          </Route>
+          <Route path="/clockfc">
+            <ClockPageFc />
           </Route>
         </Switch>
       </Router>

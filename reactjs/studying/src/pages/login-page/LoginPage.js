@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import "./style.css"
 import classNames from 'classnames'
+import { withRouter } from 'react-router-dom'
+
+import "./style.css"
 
 /**
 * @author
@@ -41,11 +43,12 @@ class LoginPage extends Component {
             //call api login and redirect to Dashboard
 
             // redirect dashboard
-            window.location.href = "/dashboard"
+            // window.location.href = "/dashboard"
+            // submit data to server
+            console.log("submit ", this.state.data, " to server")
+            // submit success => redirect to home
+            this.props.history.push("/dashboard")
         }
-
-        // submit data to server
-        console.log("submit ", this.state.data, " to server")
         event.preventDefault()
     }
 
@@ -65,7 +68,7 @@ class LoginPage extends Component {
                 <div className="field-wrapper">
                     <div className="flex-container">
                         <label className="field-label" htmlFor="">User name</label>
-                        <input className={classNames("field-input", { "error": this.state.errors.username })} name="username" type="text" onChange={this.onInputChange}/>
+                        <input className={classNames("field-input", { "error": this.state.errors.username })} name="username" type="text" onChange={this.onInputChange} />
                     </div>
                     {
                         this.state.errors.username && <span className="error-message">{this.state.errors.username}</span>
@@ -76,8 +79,8 @@ class LoginPage extends Component {
                         <label className="field-label" htmlFor="">Password</label>
                         <input className={classNames("field-input", { "error": this.state.errors.password })} name="password" type="password" onChange={this.onInputChange} />
                     </div>
-                    { this.state.errors.password && <span className="error-message">{this.state.errors.password}</span> }
-                    
+                    {this.state.errors.password && <span className="error-message">{this.state.errors.password}</span>}
+
                 </div>
                 <br />
                 <div className="submit-wrapper">
@@ -89,4 +92,4 @@ class LoginPage extends Component {
 }
 
 
-export default LoginPage
+export default withRouter(LoginPage)
