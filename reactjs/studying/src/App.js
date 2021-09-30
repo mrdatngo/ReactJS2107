@@ -5,6 +5,10 @@ import LoginPage from './pages/login-page/LoginPage';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { ClockPage } from './pages/life-circle/ClockPage';
 import { ClockPageFc } from './pages/hooks/ClockPageFc';
+import { Counter } from './pages/redux/Counter';
+import { ShowCounter } from './pages/redux/ShowCounter';
+
+import CounterLib from './pages/redux-lib/Counter'
 
 // function App() {
 //   return (
@@ -43,7 +47,17 @@ class App extends React.Component {
           </ul>
           <ul>
             <li>
-              <Link to="/clockfc">Clock</Link>
+              <Link to="/clockfc">Clock FC</Link>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <Link to="/counter">Counter</Link>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <Link to="/counter-lib">Counter Lib</Link>
             </li>
           </ul>
         </nav>
@@ -60,6 +74,13 @@ class App extends React.Component {
           </Route>
           <Route path="/clockfc">
             <ClockPageFc />
+          </Route>
+          <Route path="/counter">
+            <Counter />
+            <ShowCounter />
+          </Route>
+          <Route path="/counter-lib">
+            <CounterLib />
           </Route>
         </Switch>
       </Router>
