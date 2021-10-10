@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { getToken } from './helpers/storage';
+
+import jwt from 'jsonwebtoken'
+import store from './redux/store';
+
+let token = getToken()
+
+console.log(token)
+
+if (token) {
+  console.log(token)
+  let decodedData = jwt.decode(token)
+  console.log(decodedData)
+
+  // if token still valid
+  store.dispatch({
+    type: "USER_LOGIN_SUCCEEDED", payload: {
+      username: decodedData.username,
+      token
+    }
+  })
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <App />
+  // </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

@@ -1,7 +1,12 @@
-import React from 'react'
-import { Form, Input, Button, Checkbox, Card } from 'antd';
+import React, { useEffect, useState } from 'react'
+import { Form, Input, Button, Checkbox, Card, Typography } from 'antd';
 
 import "./login.css"
+
+import store from '../../../redux/store'
+import { useHistory } from 'react-router';
+
+const { Text } = Typography;
 
 /**
 * @author
@@ -9,11 +14,29 @@ import "./login.css"
 **/
 
 export const LoginPage = (props) => {
+
+    let [isSubmitting, setIsSubmitting] = useState(false)
+    let [message, setMessage] = useState("")
+    let history = useHistory()
+
+    useEffect(() => {
+        store.subscribe(() => {
+            let state = store.getState()
+            console.log(state)
+            setIsSubmitting(state.auth.submitting)
+            if (state.auth.isLoggedIn) {
+                history.push("/dashboard")
+            }
+            setMessage(state.auth.message)
+        })
+    }, [])
+
     const onFinish = (values) => {
         console.log('Success:', values);
         // submit login
+        store.dispatch({ type: "USER_LOGIN", payload: values })
         // redirect home
-        window.location.href = "/"
+        // window.location.href = "/"
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -62,7 +85,6 @@ export const LoginPage = (props) => {
                         },
                         {
                             validator: (_, value) => {
-                                console.log(value);
                                 let check = false
                                 let message = ""
                                 if (value && value.length > 3) {
@@ -83,7 +105,10 @@ export const LoginPage = (props) => {
                         span: 16,
                     }}
                 >
-                    <Button type="primary" htmlType="submit">
+                    <div>
+                        <Text type="danger">{message}</Text>
+                    </div>
+                    <Button type="primary" htmlType="submit" loading={isSubmitting}>
                         Submit
                     </Button>
                 </Form.Item>
