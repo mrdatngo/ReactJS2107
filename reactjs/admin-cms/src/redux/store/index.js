@@ -10,4 +10,5 @@ const store = createStore(reducerAll, composeWithDevTools(applyMiddleware(sagaMi
 
 // then run the saga
 sagaMiddleware.run(authSaga)
+
 export default store

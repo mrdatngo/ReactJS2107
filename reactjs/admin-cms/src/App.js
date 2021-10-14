@@ -1,10 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { LoginPage } from './views/pages/login/LoginPage';
+import LoginPage from './views/pages/login/LoginPage';
 import { DashboardPage } from './views/pages/dashboard/Dashboard';
 import { DefaultLayout } from './views/layouts/DefaultLayout';
 import routers from './routers';
 import { Page404 } from './views/pages/page404/Page404';
+import PrivateRoute from './routers/PrivateRoute';
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
         <Route exact path="/page404">
           <Page404 />
         </Route>
-        <Route path="/">
+        <PrivateRoute path="/">
           <DefaultLayout routers={routers}/>
-        </Route>
+        </PrivateRoute>
       </Switch>
     </Router>
   );

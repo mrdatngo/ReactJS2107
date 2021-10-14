@@ -1,4 +1,6 @@
 
+import * as type from '../const'
+
 let initialState = {
     isLoggedIn: false,
     username: "",
@@ -8,8 +10,9 @@ let initialState = {
 }
 
 function authReducer(state = initialState, action) {
+    console.log(action)
     switch (action.type) {
-        case "USER_LOGIN":
+        case type.USER_LOGIN:
             return {
                 isLoggedIn: false,
                 username: "",
@@ -18,7 +21,7 @@ function authReducer(state = initialState, action) {
                 message: "",
             }
 
-        case "USER_LOGIN_SUCCEEDED":
+        case type.USER_LOGIN_SUCCEEDED:
             return {
                 isLoggedIn: true,
                 username: action.payload.username,
@@ -27,7 +30,7 @@ function authReducer(state = initialState, action) {
                 message: ""
             }
 
-        case "USER_LOGIN_FAILED":
+        case type.USER_LOGIN_FAILED:
             return {
                 isLoggedIn: false,
                 username: "",
@@ -37,7 +40,7 @@ function authReducer(state = initialState, action) {
             }
 
         default:
-            return state
+            return state 
     }
 }
 

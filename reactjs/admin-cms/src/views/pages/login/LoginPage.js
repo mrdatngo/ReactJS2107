@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Form, Input, Button, Checkbox, Card, Typography } from 'antd';
+import React, { useEffect } from 'react'
+import { Form, Input, Button, Card, Typography } from 'antd';
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 import "./login.css"
-
-import store from '../../../redux/store'
-import { useHistory } from 'react-router';
+import { LoginAction } from "../../../redux/actions/auth"
 
 const { Text } = Typography;
 
@@ -13,30 +13,19 @@ const { Text } = Typography;
 * @function LoginPage
 **/
 
-export const LoginPage = (props) => {
-
-    let [isSubmitting, setIsSubmitting] = useState(false)
-    let [message, setMessage] = useState("")
+const LoginPage = ({ isSubmitting, message, isLoggedIn, login }) => {
     let history = useHistory()
 
     useEffect(() => {
-        store.subscribe(() => {
-            let state = store.getState()
-            console.log(state)
-            setIsSubmitting(state.auth.submitting)
-            if (state.auth.isLoggedIn) {
-                history.push("/dashboard")
-            }
-            setMessage(state.auth.message)
-        })
-    }, [])
+        if (isLoggedIn) {
+            history.push("/dashboard")
+        }
+    }, [isLoggedIn])
 
     const onFinish = (values) => {
         console.log('Success:', values);
         // submit login
-        store.dispatch({ type: "USER_LOGIN", payload: values })
-        // redirect home
-        // window.location.href = "/"
+        login(values)
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -116,3 +105,19 @@ export const LoginPage = (props) => {
         </Card>
     );
 }
+
+function mapStateToProps(state) {
+    return {
+        isSubmitting: state.auth.submitting,
+        message: state.auth.message,
+        isLoggedIn: state.auth.isLoggedIn
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        login: (data) => { dispatch(LoginAction(data))  }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)

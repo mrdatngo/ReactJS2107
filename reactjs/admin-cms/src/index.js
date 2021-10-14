@@ -1,34 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import jwt from 'jsonwebtoken'
+import { Provider } from 'react-redux'
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { getToken } from './helpers/storage';
-
-import jwt from 'jsonwebtoken'
 import store from './redux/store';
 
 let token = getToken()
 
-console.log(token)
-
 if (token) {
-  console.log(token)
   let decodedData = jwt.decode(token)
   console.log(decodedData)
 
-  // if token still valid
-  store.dispatch({
-    type: "USER_LOGIN_SUCCEEDED", payload: {
-      username: decodedData.username,
-      token
-    }
-  })
+  let exp = decodedData.exp * 1000 // timestamp miliseconds
+  let curTimeStamp = new Date().getTime() // miliseconds
+
+  if (exp > curTimeStamp) {
+    // alert("valid")
+    // if token still valid
+    store.dispatch({
+      type: "USER_LOGIN_SUCCEEDED", payload: {
+        username: decodedData.username,
+        token
+      }
+    })
+  } else {
+    // alert("Expired!")
+    // redirect login
+  }
 }
 
 ReactDOM.render(
   // <React.StrictMode>
-  <App />
+  <Provider store={store}>
+    <App />
+  </Provider>
+
   // </React.StrictMode>
   ,
   document.getElementById('root')
