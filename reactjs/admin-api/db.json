@@ -19,5 +19,35 @@
   "comments": [],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "students": [
+    {
+      "id": "DH1",
+      "name": "Hoang Duy",
+      "classes": ["REACTJS2107", "NODEJS2101"],
+      "address": "HN",
+      "age": 20
+    },
+    {
+      "id": "DH2",
+      "name": "Hoang Van Hoc",
+      "classes": ["REACTJS2107"],
+      "address": "HN",
+      "age": 21
+    },
+    {
+      "id": "DH3",
+      "name": "Nguyen Van Duc",
+      "classes": ["REACTJS2107", "NODEJS2101"],
+      "address": "HN",
+      "age": 22
+    },
+    {
+      "id": "DH4",
+      "name": "Pham Duy Hung",
+      "classes": ["REACTJS2107", "NODEJS2101"],
+      "address": "HN",
+      "age": 20
+    }
+  ]
 }

@@ -1,11 +1,11 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
-import * as authApi from "../../apis/auth"
+import * as Api from "../../apis"
 import { saveToken } from '../../helpers/storage';
 
 // worker Saga: will be fired on USER_LOGIN actions
 function* login(action) {
     try {
-        const data = yield call(authApi.login, action.payload);
+        const data = yield call(Api.login, action.payload);
         if (data.success) {
             saveToken (data.token)
             yield put({ type: "USER_LOGIN_SUCCEEDED", payload: {

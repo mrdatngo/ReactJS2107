@@ -83,12 +83,12 @@ export const DefaultLayout = ({ routers }) => {
                                 return router.children && router.children.length != 0 ? (
                                     // submenu
                                     router.children.map(subRouter => {
-                                        return <Route path={subRouter.path}>
+                                        return <Route exact={router.exact} path={subRouter.path}>
                                             {subRouter.component}
                                         </Route>
                                     })
                                 ) : (
-                                    <Route path={router.path}>
+                                    <Route exact={router.exact} path={router.path}>
                                         {router.component}
                                     </Route>
                                 )

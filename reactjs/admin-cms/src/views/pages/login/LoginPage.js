@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import "./login.css"
 import { LoginAction } from "../../../redux/actions/auth"
+import { setAxiosToken } from '../../../apis';
 
 const { Text } = Typography;
 
@@ -18,7 +19,8 @@ const LoginPage = ({ isSubmitting, message, isLoggedIn, login }) => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            history.push("/dashboard")
+            setAxiosToken()
+            history.push("/")
         }
     }, [isLoggedIn])
 
