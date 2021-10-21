@@ -16,9 +16,31 @@ function login(data) {
 }
 
 function fetchStudents(data) {
-    return axios.get(`${base_api}/students?_page=${data._page}&_limit=${data._limit}`).then(res => {
+    return axios.get(`${base_api}/students?_page=${data._page}&_limit=${data._limit}&q=${data.keyword}`).then(res => {
         return { list: res.data, total: res.headers["x-total-count"] }
     })
 }
 
-export { login, fetchStudents }
+function addStudent(data) {
+    let { age, name, address } = data
+    let className = data["class"]
+    let payload = {
+        age,
+        name,
+        address,
+        classes: [className]
+    }
+
+    return axios.post(`${base_api}/students`, payload).then(res => {
+        return res.data
+    })
+}
+
+function deleteStudent(id) {
+    console.log(id)
+    return axios.delete(`${base_api}/students/${id}`).then(res => {
+        return res.data
+    })
+}
+
+export { login, fetchStudents, addStudent, deleteStudent }

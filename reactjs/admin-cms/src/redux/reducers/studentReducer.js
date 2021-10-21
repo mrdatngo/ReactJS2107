@@ -8,7 +8,16 @@ let initialState = {
         message: "",
         total: 0
     },
-    addStudent: {}
+    addStudent: {
+        loading: false,
+        success: false,
+        message: ""
+    },
+    deleteStudent: {
+        loading: false,
+        success: false,
+        message: ""
+    }
 }
 
 function studentsReducer(state = initialState, action) {
@@ -17,9 +26,9 @@ function studentsReducer(state = initialState, action) {
             return {
                 ...state,
                 students: {
+                    ...state.students,
                     loading: true,
                     message: "",
-                    data: [],
                     total: 0,
                 }
             }
@@ -45,6 +54,67 @@ function studentsReducer(state = initialState, action) {
                     total: 0
                 }
             }
+
+        case type.ADD_STUDENTS:
+            return {
+                ...state,
+                addStudent: {
+                    loading: true,
+                    success: false,
+                    message: ""
+                }
+            }
+
+        case type.ADD_STUDENTS_SUCCEEDED:
+            return {
+                ...state,
+                addStudent: {
+                    loading: false,
+                    success: true,
+                    message: "Add student success!"
+                }
+            }
+
+        case type.ADD_STUDENTS_FAILED:
+            return {
+                ...state,
+                addStudent: {
+                    loading: false,
+                    success: false,
+                    message: action.message
+                }
+            }
+
+        case type.DELETE_STUDENT:
+            return {
+                ...state,
+                deleteStudent: {
+                    loading: true,
+                    success: false,
+                    message: ""
+                }
+            }
+
+        case type.DELETE_STUDENT_SUCCEEDED:
+            return {
+                ...state,
+                deleteStudent: {
+                    loading: false,
+                    success: true,
+                    message: "Delete student successed!"
+                }
+            }
+
+        case type.DELETE_STUDENT_FAILED:
+            return {
+                ...state,
+                deleteStudent: {
+                    loading: false,
+                    success: false,
+                    message: action.message
+                }
+            }
+
 
         default:
             return state

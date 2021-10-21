@@ -10,7 +10,6 @@ let initialState = {
 }
 
 function authReducer(state = initialState, action) {
-    console.log(action)
     switch (action.type) {
         case type.USER_LOGIN:
             return {
