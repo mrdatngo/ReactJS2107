@@ -1,8 +1,10 @@
+import React from 'react';
 import { DashboardPage } from "./views/pages/dashboard/Dashboard";
 import { PieChartOutlined, UserOutlined } from '@ant-design/icons';
-import { Students } from "./views/pages/students-management/students/Students";
-import { AddStudent } from "./views/pages/students-management/add-student/AddStudent";
-import { EditStudent } from "./views/pages/students-management/edit-student/EditStudent";
+
+const Students = React.lazy(() => import("./views/pages/students-management/students/Students"))
+const AddStudent = React.lazy(() => import("./views/pages/students-management/add-student/AddStudent"))
+const EditStudent = React.lazy(() => import("./views/pages/students-management/edit-student/EditStudent"))
 
 const routers = [
     {
@@ -34,7 +36,7 @@ const routers = [
                 children: [],
             },
             {
-                path: "/students",
+                path: "/students-list",
                 title: "List Student",
                 icon: "",
                 component: <Students />,

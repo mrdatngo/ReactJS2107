@@ -20,7 +20,7 @@ const tailLayout = {
 * @function AddStudent
 **/
 
-export const AddStudent = (props) => {
+const AddStudent = (props) => {
     const [form] = useForm();
     const [classes, setClasses] = useState([
         {
@@ -100,3 +100,5 @@ export const AddStudent = (props) => {
         </>
     )
 }
+
+export default AddStudent

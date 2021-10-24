@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
@@ -78,24 +78,26 @@ export const DefaultLayout = ({ routers }) => {
                     </Breadcrumb> */}
                     {/* { main content } */}
                     <Switch>
-                        {
-                            routers.map(router => {
-                                return router.children && router.children.length != 0 ? (
-                                    // submenu
-                                    router.children.map(subRouter => {
-                                        return <Route exact={router.exact} path={subRouter.path}>
-                                            {subRouter.component}
+                        <Suspense fallback={<p>Loading...</p>}>
+                            {
+                                routers.map(router => {
+                                    return router.children && router.children.length != 0 ? (
+                                        // submenu
+                                        router.children.map(subRouter => {
+                                            return <Route exact={router.exact} path={subRouter.path}>
+                                                {subRouter.component}
+                                            </Route>
+                                        })
+                                    ) : (
+                                        <Route exact={router.exact} path={router.path}>
+                                            {router.component}
                                         </Route>
-                                    })
-                                ) : (
-                                    <Route exact={router.exact} path={router.path}>
-                                        {router.component}
-                                    </Route>
-                                )
-                            })
-                        }
+                                    )
+                                })
+                            }
+                        </Suspense>
                         <Route path="/">
-                            <Redirect to="/page404"/>
+                            <Redirect to="/page404" />
                         </Route>
                     </Switch>
                 </Content>

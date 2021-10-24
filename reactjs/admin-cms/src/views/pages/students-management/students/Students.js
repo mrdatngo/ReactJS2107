@@ -15,7 +15,7 @@ const { Search } = Input;
 * @function Students
 **/
 
-export const Students = (props) => {
+const Students = (props) => {
 
     const history = useHistory()
 
@@ -138,3 +138,5 @@ export const Students = (props) => {
         </div>
     )
 }
+
+export default Students
