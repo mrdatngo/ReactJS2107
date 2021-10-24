@@ -17,6 +17,17 @@ let initialState = {
         loading: false,
         success: false,
         message: ""
+    },
+    student: {
+        data: {},
+        loading: false,
+        success: false,
+        message: ""
+    },
+    updateStudent: {
+        loading: false,
+        success: false,
+        message: ""
     }
 }
 
@@ -115,6 +126,68 @@ function studentsReducer(state = initialState, action) {
                 }
             }
 
+        case type.FETCH_STUDENT:
+            return {
+                ...state,
+                student: {
+                    data: {},
+                    loading: true,
+                    success: false,
+                    message: ""
+                }
+            }
+
+        case type.FETCH_STUDENT_SUCCEEDED:
+            return {
+                ...state,
+                student: {
+                    data: action.payload.data,
+                    loading: false,
+                    success: true,
+                    message: "Fetch student successed!"
+                }
+            }
+
+        case type.FETCH_STUDENT_FAILED:
+            return {
+                ...state,
+                student: {
+                    data: {},
+                    loading: false,
+                    success: false,
+                    message: action.message
+                }
+            }
+
+        case type.UPDATE_STUDENT:
+            return {
+                ...state,
+                updateStudent: {
+                    loading: true,
+                    success: false,
+                    message: ""
+                }
+            }
+
+        case type.UPDATE_STUDENT_SUCCEEDED:
+            return {
+                ...state,
+                updateStudent: {
+                    loading: false,
+                    success: true,
+                    message: "Update student success!"
+                }
+            }
+
+        case type.UPDATE_STUDENT_FAILED:
+            return {
+                ...state,
+                updateStudent: {
+                    loading: false,
+                    success: false,
+                    message: action.message
+                }
+            }
 
         default:
             return state

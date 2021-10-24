@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Table, Tag, Input, Space, Typography } from 'antd';
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router'
 
 import "./students.css"
 import { DeleteStudentAction, FetchStudentsAction } from '../../../../redux/actions/students';
@@ -15,6 +16,9 @@ const { Search } = Input;
 **/
 
 export const Students = (props) => {
+
+    const history = useHistory()
+
     const [pageSize, setPageSize] = useState(10)
     const [current, setCurrent] = useState(1)
     const [keyword, setKeyword] = useState("")
@@ -57,7 +61,7 @@ export const Students = (props) => {
             key: 'action',
             render: (data) => (
                 <Space size="middle">
-                    <a>Edit</a>
+                    <a onClick={() => editStudent(data)}>Edit</a>
                     <a onClick={() => deleteStudent(data)}>Delete</a>
                 </Space>
             ),
@@ -74,6 +78,10 @@ export const Students = (props) => {
         }
     }, [success])
 
+    const editStudent = (data) => {
+        const { id } = data
+        history.push(`/student/edit/${id}`)
+    }
 
     const deleteStudent = (data) => {
         console.log(data.id)

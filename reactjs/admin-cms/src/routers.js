@@ -2,6 +2,7 @@ import { DashboardPage } from "./views/pages/dashboard/Dashboard";
 import { PieChartOutlined, UserOutlined } from '@ant-design/icons';
 import { Students } from "./views/pages/students-management/students/Students";
 import { AddStudent } from "./views/pages/students-management/add-student/AddStudent";
+import { EditStudent } from "./views/pages/students-management/edit-student/EditStudent";
 
 const routers = [
     {
@@ -38,6 +39,14 @@ const routers = [
                 icon: "",
                 component: <Students />,
                 children: [],
+            },
+            {
+                path: "/student/edit/:id",
+                title: "Edit Student",
+                icon: "",
+                component: <EditStudent />,
+                children: [],
+                hidden: true,
             },
         ],
     }

@@ -43,4 +43,24 @@ function deleteStudent(id) {
     })
 }
 
-export { login, fetchStudents, addStudent, deleteStudent }
+function fetchStudent(id) {
+    return axios.get(`${base_api}/students/${id}`).then(res => {
+        return res.data
+    })
+}
+
+function updateStudent(data) {
+    let { id, age, name, address } = data
+    let className = data["class"]
+    let payload = {
+        age,
+        name,
+        address,
+        classes: [className]
+    }
+    return axios.put(`${base_api}/students/${id}`, payload).then(res => {
+        return res.data
+    })
+}
+
+export { login, fetchStudents, addStudent, deleteStudent, fetchStudent, updateStudent }

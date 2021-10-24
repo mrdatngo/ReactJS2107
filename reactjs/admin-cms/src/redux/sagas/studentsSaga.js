@@ -35,10 +35,40 @@ function* deleteStudent(action) {
     }
 }
 
+function* fetchStudent(action) {
+    console.log("fetch: ", action)
+    try {
+        let data = yield call(Api.fetchStudent, action.payload);
+        yield put({
+            type: type.FETCH_STUDENT_SUCCEEDED, payload: { data }
+        });
+    } catch (e) {
+        yield put({ type: type.FETCH_STUDENT_FAILED, message: e.message });
+    }
+}
+
+
+function* updateStudent(action) {
+    console.log("update: ", action)
+    try {
+        yield call(Api.updateStudent, action.payload);
+        yield put({
+            type: type.UPDATE_STUDENT_SUCCEEDED
+        });
+        // yield put({
+        //     type: type.FETCH_STUDENT, payload: action.payload.id
+        // });
+    } catch (e) {
+        yield put({ type: type.UPDATE_STUDENT_FAILED, message: e.message });
+    }
+}
+
 function* mySaga() {
     yield takeEvery(type.FETCH_STUDENTS, fetchStudents);
     yield takeEvery(type.ADD_STUDENTS, addStudent);
     yield takeEvery(type.DELETE_STUDENT, deleteStudent);
+    yield takeEvery(type.FETCH_STUDENT, fetchStudent);
+    yield takeEvery(type.UPDATE_STUDENT, updateStudent);
 }
 
 export default mySaga;

@@ -50,11 +50,11 @@ export const DefaultLayout = ({ routers }) => {
                             return menu.children && menu.children.length != 0 ? (
                                 <SubMenu key={menu.path} icon={<UserOutlined />} title="Students">
                                     {menu.children.map((subMenu) => {
-                                        return <Menu.Item key={subMenu.path}><Link to={subMenu.path}>{subMenu.title}</Link></Menu.Item>
+                                        return !subMenu.hidden && <Menu.Item key={subMenu.path}><Link to={subMenu.path}>{subMenu.title}</Link></Menu.Item>
                                     })}
                                 </SubMenu>
                             ) : (
-                                <Menu.Item key={menu.path} icon={menu.icon}>
+                                !menu.hidden && <Menu.Item key={menu.path} icon={menu.icon}>
                                     <Link to={menu.path}>{menu.title}</Link>
                                 </Menu.Item>
                             )
