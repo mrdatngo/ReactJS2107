@@ -23,7 +23,7 @@ const tailLayout = {
 
 const EditStudent = (props) => {
     const [form] = useForm();
-    const [classes, setClasses] = useState([
+    const [classes] = useState([
         {
             id: 1,
             name: "ReactJS"

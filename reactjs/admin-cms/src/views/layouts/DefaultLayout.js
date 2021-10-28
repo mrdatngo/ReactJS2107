@@ -1,11 +1,7 @@
 import React, { Suspense, useState } from 'react'
 
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
     UserOutlined,
 } from '@ant-design/icons';
 
@@ -47,7 +43,7 @@ export const DefaultLayout = ({ routers }) => {
                     {/* {getMenuItems()} */}
                     {
                         routers.map((menu) => {
-                            return menu.children && menu.children.length != 0 ? (
+                            return menu.children && menu.children.length !== 0 ? (
                                 <SubMenu key={menu.path} icon={<UserOutlined />} title="Students">
                                     {menu.children.map((subMenu) => {
                                         return !subMenu.hidden && <Menu.Item key={subMenu.path}><Link to={subMenu.path}>{subMenu.title}</Link></Menu.Item>
@@ -62,7 +58,7 @@ export const DefaultLayout = ({ routers }) => {
                     }
                     {/* <Menu.Item key="1" icon={<PieChartOutlined />}>
                         <Link to="/dashboard">Dashboard</Link>
-                    </Menu.Item>
+                    </Menu.Item>s
                     <SubMenu key="sub1" icon={<UserOutlined />} title="Students">
                         <Menu.Item key="3"><Link to="/create-student">New Student</Link></Menu.Item>
                         <Menu.Item key="4"><Link to="/students">List Student</Link></Menu.Item>
@@ -72,16 +68,12 @@ export const DefaultLayout = ({ routers }) => {
             <Layout className="site-layout">
                 <Header className="site-layout-background" style={{ padding: 0 }} />
                 <Content style={{ margin: '0 16px' }}>
-                    {/* <Breadcrumb style={{ margin: '16px 0' }}>
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb> */}
                     {/* { main content } */}
                     <Switch>
                         <Suspense fallback={<p>Loading...</p>}>
                             {
                                 routers.map(router => {
-                                    return router.children && router.children.length != 0 ? (
+                                    return router.children && router.children.length !== 0 ? (
                                         // submenu
                                         router.children.map(subRouter => {
                                             return <Route exact={router.exact} path={subRouter.path}>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Input, Button, Select, Typography } from 'antd';
-import { FormInstance } from 'antd/es/form';
 import { useForm } from 'antd/es/form/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddStudentsAction } from '../../../../redux/actions/students';
@@ -22,7 +21,7 @@ const tailLayout = {
 
 const AddStudent = (props) => {
     const [form] = useForm();
-    const [classes, setClasses] = useState([
+    const [classes] = useState([
         {
             id: 1,
             name: "ReactJS"
@@ -52,13 +51,6 @@ const AddStudent = (props) => {
 
     const onReset = () => {
         form.resetFields();
-    };
-
-    const onFill = () => {
-        form.setFieldsValue({
-            note: 'Hello world!',
-            gender: 'male',
-        });
     };
 
     return (

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Form, Input, Button, Card, Typography } from 'antd';
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import "./login.css"
 import { LoginAction } from "../../../redux/actions/auth"
@@ -22,7 +23,7 @@ const LoginPage = ({ isSubmitting, message, isLoggedIn, login }) => {
             setAxiosToken()
             history.push("/")
         }
-    }, [isLoggedIn])
+    }, [isLoggedIn, history])
 
     const onFinish = (values) => {
         console.log('Success:', values);
@@ -36,7 +37,7 @@ const LoginPage = ({ isSubmitting, message, isLoggedIn, login }) => {
     };
 
     return (
-        <Card className="login-container" size="small" title="Login" extra={<a href="#">Register</a>} style={{ width: 500 }}>
+        <Card className="login-container bg-primary" size="small" title="Login" extra={<a href="#">Register</a>} style={{ width: 500 }}>
             <Form
                 name="basic"
                 labelCol={{
@@ -106,6 +107,17 @@ const LoginPage = ({ isSubmitting, message, isLoggedIn, login }) => {
             </Form>
         </Card>
     );
+}
+
+LoginPage.propTypes = {
+    isSubmitting: PropTypes.bool,
+    message: PropTypes.string,
+    isLoggedIn: PropTypes.bool,
+    login: PropTypes.func.isRequired,
+    // test: PropTypes.shape({
+    //     propx: PropTypes.string.isRequired
+    // }).isRequired,
+    // test2: PropTypes.string.isRequired
 }
 
 function mapStateToProps(state) {

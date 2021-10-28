@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 /**
 * @author
@@ -8,6 +8,6 @@ import React, { useState } from 'react'
 export const DashboardPage = (props) => {
 
     return (
-        <div>Dashboard 2</div>
+        <div className="bg-primary">Dashboard 2</div>
     )
 }

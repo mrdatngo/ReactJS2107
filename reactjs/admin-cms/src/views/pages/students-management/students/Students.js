@@ -19,7 +19,7 @@ const Students = (props) => {
 
     const history = useHistory()
 
-    const [pageSize, setPageSize] = useState(10)
+    const [pageSize] = useState(10)
     const [current, setCurrent] = useState(1)
     const [keyword, setKeyword] = useState("")
     const [columns] = useState([

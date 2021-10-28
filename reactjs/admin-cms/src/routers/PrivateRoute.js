@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Redirect, Route } from 'react-router'
-// import store from '../redux/store'
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 /**
 * @author
